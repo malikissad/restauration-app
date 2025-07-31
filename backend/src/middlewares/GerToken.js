@@ -1,3 +1,4 @@
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 function GerToken (req,res,next) {
@@ -8,14 +9,14 @@ function GerToken (req,res,next) {
     try{
         const refreshToken = jwt.sign(
             {username : res.locals.username},
-            'ResfreshToken',
-            {expiresIn: '1 min'}    
+            process.env.RefreshToken,
+            {expiresIn: '3 min'}    
         )
 
         const accessToken = jwt.sign(
             {username : res.locals.username},
-            'AccessToken',
-            {expiresIn:'3 min'}
+            process.env.AccessToken,
+            {expiresIn:'1 min'}
         )
 
         res.locals.token = {refreshToken, accessToken}

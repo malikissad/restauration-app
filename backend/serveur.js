@@ -1,21 +1,26 @@
 require('dotenv').config()
 
+const {ProtectedRoute} = require('./src/middlewares/ProtectedRoute.js')
 const router = require('./src/route.js')
 const {Users} = require('./src/models/Users.js') 
 const sequelize = require('./src/config/db.js')
+const cookieparser = require('cookie-parser')
+
 const express = require('express')
 const app = express()
+
 // const Port = process.env.PORT
-const Port = 5000
 
 
 app.use(express.json())
+app.use(cookieparser())
+
+
 app.use('/auth',router)
 
-app.get('/test', async (req,res) => {
-    await sequelize.authenticate()
-    .then(()=> {res.json("bon cennexion")})
-    .catch(err =>{res.json(err)})
+
+app.get('/test', ProtectedRoute,async (req,res) => {
+    return res.status(200).json('bon test')
 })
 
 
@@ -24,6 +29,4 @@ app.get('/search', async (req,res)=> {
     return res.json(users)
 })
 
-app.listen(Port, () => {
-    console.log(`serveur is runing on ${Port}`)
-})
+app.listen(process.env.PORT)
