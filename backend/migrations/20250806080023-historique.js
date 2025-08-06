@@ -19,12 +19,19 @@ module.exports = {
       id_serveur: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
       },
       num_tab: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
       },
       id_facture: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        unique: true,
+      },
+      addition: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },

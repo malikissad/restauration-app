@@ -57,12 +57,13 @@ app.use("/dashboard", routerD);
 app.get("/test", async (req, res) => {
   try{
     await db.historique.create({
-    id_comm: 123,
+    id_comm: 1,
     date_comm: new Date(), 
     heure_comm: "14:00:00",
-    id_serveur: 1,
-    num_tab: 5,
-    id_facture: 7,
+    id_serveur: 4,
+    num_tab: 6,
+    id_facture: 8,
+    addition: 2151
   });
   return res.status(200).json("ajouter avec succées")
   }catch(err){
