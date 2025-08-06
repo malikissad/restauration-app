@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
+    
     nb_place: {
       type: DataTypes.INTEGER,
       allowNull: false
