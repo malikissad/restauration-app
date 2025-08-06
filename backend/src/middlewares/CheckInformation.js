@@ -1,4 +1,4 @@
-const {Users} = require('../models/Users.js')
+const { Users} = require('../../../models/Users.js')
 
 async function CheckInformation(req, res, next) {
     

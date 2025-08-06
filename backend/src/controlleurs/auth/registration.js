@@ -1,4 +1,4 @@
-const { Users} = require('../../models/Users')
+const { Users} = require('../../../models/Users.js')
 const bcrypt = require('bcrypt')
 
 exports.RegistrationController = async (req, res) => {
