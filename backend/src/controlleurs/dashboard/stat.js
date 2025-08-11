@@ -4,5 +4,6 @@ exports.Stat = function(req,res){
         "table occuppées" : res.locals.countOcuppe, 
         "commande active" : res.locals.countActive, 
         "commande En attente": res.locals.countEnAttente,
+        "saleDay": res.locals.saleDay
     })
 }
